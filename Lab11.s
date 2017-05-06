@@ -52,9 +52,17 @@ loopmain:
  	ldr r0, [r6]
 	mov r1,#19
 	
-	bl GetGpio
+	dr r6, =myloc
+ 	ldr r0, [r6]		@ obtener direccion de la memoria virtual 
+	ldr r5,[r0,#0x34]	@Direccion r0+0x34:lee en r5 estado de puertos de entrada
+	mov r7,#1
+	lsl r7,#19
+	and r5,r7 		@se revisa el bit 14 (puerto de entrada)
+
+	@Si el boton esta en alto (1), fue presionado y enciende GPIO 15
+	cmp r5,#0
 	
-	cmp r0,#1
+	@@cmp r0,#1
 	bleq sender
 	b loopmain
 	
