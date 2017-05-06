@@ -58,17 +58,17 @@ loopmain:
 	b loopmain
 	
 sender:
-	push{lr}
+	push {lr}
 	cmp r7,#1
 	bleq loop1
 	cmp r7,#2
 	bleq loop2
 	bl loop3
-	pop{pc}
+	pop {pc}
 	
 	
 loop1:
-	push{lr}
+	push {lr}
 	@@prende el primero
 	mov r0, #5
 	mov r1,#1
@@ -87,11 +87,11 @@ loop1:
 	bl wait
 	
 	add r7,r7,#1
-	pop{pc}
+	pop {pc}
 
 	
 loop2:
-	push{lr}
+	push {lr}
 	@enciende el siguiente
 	mov r0,#6
 	mov r1,#1
@@ -110,10 +110,10 @@ loop2:
 	bl wait
 	
 	add r7,r7,#1
-	pop{pc}
+	pop {pc}
 	
 loop3:
-	push{lr}
+	push {lr}
 	@enciende el tercero
 	mov r0,#13
 	mov r1,#1
@@ -132,7 +132,7 @@ loop3:
 	bl wait
 	
 	add r7,r7,#1
-	pop{pc}
+	pop {pc}
 
 	
 
