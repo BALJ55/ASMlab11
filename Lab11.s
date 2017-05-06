@@ -31,25 +31,34 @@ main:
 	
 	@@primer led prendido
 	
-	@@segundo led apagado
-	mov r0, #6
-	mov r1,#0
-	bl SetGpio
 	
-	@@tercer led apagado
-	mov r0, #13
-	mov r1,#0
-	bl SetGpio
+	
+	
 		
 	mov r3,#2
 	mov r7,#1
 
 	
 loopmain:
+
+
+	mov r0, #5
+	mov r1,#1
+	bl SetGpio
+
 	ldr r6, =myloc
  	ldr r0, [r6]
 	mov r1,#19
+	
+	mov r0, #6
+	mov r1,#1
+	bl SetGpio
+	
 	bl GetGpio
+	
+	mov r0, #13
+	mov r1,#1
+	bl SetGpio
 	
 	cmp r0,#1
 	beq sender
