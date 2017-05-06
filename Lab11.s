@@ -32,9 +32,15 @@ main:
 	@@primer led prendido
 	
 	
-	
-	
-		
+	mov r0, #5
+	mov r1,#0
+	bl SetGpio
+	mov r0, #6
+	mov r1,#0
+	bl SetGpio
+	mov r0, #13
+	mov r1,#0
+	bl SetGpio
 	mov r3,#2
 	mov r7,#1
 
