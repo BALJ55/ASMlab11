@@ -48,25 +48,11 @@ main:
 
 	
 loopmain:
-
-
-	mov r0, #5
-	mov r1,#1
-	bl SetGpio
-
 	ldr r6, =myloc
  	ldr r0, [r6]
 	mov r1,#19
 	
-	mov r0, #6
-	mov r1,#1
-	bl SetGpio
-	
 	bl GetGpio
-	
-	mov r0,#13
-	mov r1,#1
-	bl SetGpio
 	
 	cmp r0,#1
 	bleq sender
@@ -75,8 +61,10 @@ loopmain:
 sender:
 	cmp r7,#1
 	bleq loop1
+	
 	cmp r7,#2
 	bleq loop2
+	
 	bl loop3
 	
 loop1:
