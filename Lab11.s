@@ -43,6 +43,8 @@ main:
 	bl SetGpio
 	mov r3,#2
 	mov r7,#1
+	bl wait
+	bl loopmain
 
 	
 loopmain:
@@ -62,26 +64,22 @@ loopmain:
 	
 	bl GetGpio
 	
-	mov r0, #13
+	mov r0,#13
 	mov r1,#1
 	bl SetGpio
 	
 	cmp r0,#1
-	beq sender
+	bleq sender
 	b loopmain
 	
 sender:
-	push {lr}
 	cmp r7,#1
 	bleq loop1
 	cmp r7,#2
 	bleq loop2
 	bl loop3
-	pop {pc}
-	
 	
 loop1:
-	push {lr}
 	@@prende el primero
 	mov r0, #5
 	mov r1,#1
@@ -100,11 +98,11 @@ loop1:
 	bl wait
 	
 	add r7,r7,#1
-	pop {pc}
+	bl loopmain
 
 	
 loop2:
-	push {lr}
+
 	@enciende el siguiente
 	mov r0,#6
 	mov r1,#1
@@ -123,10 +121,9 @@ loop2:
 	bl wait
 	
 	add r7,r7,#1
-	pop {pc}
+	bl loopmain
 	
 loop3:
-	push {lr}
 	@enciende el tercero
 	mov r0,#13
 	mov r1,#1
@@ -145,7 +142,7 @@ loop3:
 	bl wait
 	
 	add r7,r7,#1
-	pop {pc}
+	bl loopmain
 
 	
 
