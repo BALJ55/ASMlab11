@@ -26,9 +26,3 @@ GetGpio:
 	pop {pc}				@retorno al programa principal
 	
 	
- .data
- .align 2
-.global myloc
-myloc: .word 0
-
- .end

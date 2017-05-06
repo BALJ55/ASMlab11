@@ -31,7 +31,6 @@ main:
 	
 	@@primer led prendido
 	
-	
 	@@segundo led apagado
 	mov r0, #6
 	mov r1,#0
@@ -41,8 +40,7 @@ main:
 	mov r0, #13
 	mov r1,#0
 	bl SetGpio
-	
-	
+		
 	mov r3,#2
 	mov r7,#1
 
